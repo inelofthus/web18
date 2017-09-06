@@ -9,6 +9,7 @@
   "author": "gruppe 18",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "http": "0.0.0"
   }
 }
