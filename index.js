@@ -4,8 +4,12 @@ var app=express();
 var http = require('http').Server(app);
 
 app.get('/', function(req,res){
+  res.sendFile(__dirname+'/index.html');
+});
+app.get('/ajax', function(req,res){
   res.sendFile(__dirname+'/blabla.html');
 });
+
 http.listen(port,function(){
   console.log('Listening on '+port);
 });
@@ -20,7 +24,6 @@ app.get('/ajaxcall', function(req, res){
 	};
 	res.send(data);
 });
-
 
 //Setup for using static files (stylesheets, images, scripts etc.) from public directory
 app.use(express.static('public'));
