@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	
+</script>
+<title>Ajax Calls</title>
+</head>
+<body>
+	<button id="getButton" onclick="get()">GET</button>
+	<pre id="getResponse"></pre>
+	<img src="images/vann.jpg"/>
+	<script>
+		function get(){
+			$.ajax({
+				type: 'GET',
+				url: 'http://localhost:8081/ajaxcall',
+				dataType: 'json'
+			}).done(function(data) {
+				console.log('GET respoonse:', JSON.stringify(data, "", 2));
+				 $('#getResponse').html(JSON.stringify(data, "", 2));
+			})
+			.fail(function(jqHXR, textStatus, err){
+				console.log('AJAX error response:', textStatus);
+			})
+		}
+	</script>
+</body>
+</html>
